@@ -667,7 +667,7 @@ VOID ReadConfig(CHAR16 *FileName)
             HandleStrings(TokenList, TokenCount, &(GlobalConfig.DriverDirs));
 
         } else if (MyStriCmp(TokenList[0], L"showtools")) {
-            SetMem(GlobalConfig.ShowTools, NUM_TOOLS * sizeof(UINTN), 0);
+            /* SetMem(GlobalConfig.ShowTools, NUM_TOOLS * sizeof(UINTN), 0); */
             GlobalConfig.HiddenTags = FALSE;
             for (i = 1; (i < TokenCount) && (i < NUM_TOOLS); i++) {
                 FlagName = TokenList[i];
@@ -712,7 +712,10 @@ VOID ReadConfig(CHAR16 *FileName)
                    Print(L" unknown showtools flag: '%s'\n", FlagName);
                 }
             } // showtools options
-
+            /* zero out rest of tools */
+            for (i = TokenCount; i < NUM_TOOLS; i++) {
+                GlobalConfig.ShowTools[i - 1] = 0;
+            }
         } else if (MyStriCmp(TokenList[0], L"support_gzipped_loaders")) {
            GlobalConfig.GzippedLoaders = HandleBoolean(TokenList, TokenCount);
 

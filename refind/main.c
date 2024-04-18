@@ -153,7 +153,9 @@ REFIT_CONFIG GlobalConfig = { /* TextOnly = */ FALSE,
                               /* CsrValues = */ NULL,
                               /* ShowTools = */ { TAG_SHELL, TAG_MEMTEST, TAG_GDISK, TAG_APPLE_RECOVERY, TAG_WINDOWS_RECOVERY,
                                                   TAG_MOK_TOOL, TAG_ABOUT, TAG_HIDDEN, TAG_SHUTDOWN, TAG_REBOOT, TAG_FIRMWARE,
-                                                  TAG_FWUPDATE_TOOL, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+                                                  TAG_FWUPDATE_TOOL,
+                                                  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+                                                  /* NUM_TOOLS = 24, default 12, then 12 null */
                             };
 
 CHAR16 *gHiddenTools = NULL;
